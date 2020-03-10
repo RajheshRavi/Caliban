@@ -20,14 +20,20 @@ def control(event = None):      # use "event = None" when error occurs
     command = mesg[0]
     if command.lower() == "download":
         Downloader.Download(mesg[1])
-    elif command.lower() == "search" or command.lower() == "Browse":
+    elif command.lower() == "search" or command.lower() == "browse":
         Browser.browse(mesg[1])
     elif command.lower() == "wikia":
-        Wikia.wiki(mesg[1],mesg[2])
+        if len(mesg) == 2:
+            wikia.wiki(mesg[1],mesg[1])
+        elif len(mesg) == 3:
+            Wikia.wiki(mesg[1],mesg[2])
+        
 
 
 root = tk.Tk()
 root.title("Caliban")
+root.iconbitmap("Caliban.ico")
+root.bind("<Return>",control)
 
 messageFrame = tk.Frame(root)
 myMesg = tk.StringVar()

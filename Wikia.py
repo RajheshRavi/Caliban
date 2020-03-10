@@ -1,5 +1,5 @@
 import subprocess
-import browser
+import Browser
 import pip
 #import sys
 
@@ -12,6 +12,7 @@ except:
 
 def wiki(topic,subtopic):
     wiki = wikia.page(topic,subtopic)
-    browser.browse(wiki.url)
+    Browser.browse(wiki.url)
 
+#wiki("huntik","huntik")
 #wiki("huntik","caliban")
